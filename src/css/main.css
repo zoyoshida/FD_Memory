@@ -11,38 +11,17 @@
 }
 
 body {
-  background-color: #8aab97;
+  background-color: #fbfaf9;
   background-image:
-    repeating-linear-gradient(
-      to right,
-      transparent 0,
-      transparent 1.6666666666666667px,
-      #8aab97 1.6666666666666667px,
-      #8aab97 5px,
-      transparent 5px,
-      transparent 6.666666666666667px
+    linear-gradient(
+      90deg,
+      transparent 79px,
+      #abced4 79px,
+      #abced4 81px,
+      transparent 81px
     ),
-    repeating-linear-gradient(
-      to bottom,
-      transparent 0,
-      transparent 1.6666666666666667px,
-      #8aab97 1.6666666666666667px,
-      #8aab97 5px,
-      transparent 5px,
-      transparent 6.666666666666667px
-    ),
-    linear-gradient(to bottom, #ffffff 0.6px, transparent 0.6px),
-    linear-gradient(to right, #ffffff 0.6px, transparent 0.6px);
-  background-size:
-    100% 100%,
-    100% 100%,
-    20px 20px,
-    20px 20px;
-  background-position:
-    0 0,
-    0 0,
-    0 -0.2px,
-    -0.2px 0;
+    linear-gradient(#eee 0.1em, transparent 0.1em);
+  background-size: 100% 1.2em;
 }
 
 a {
@@ -60,7 +39,7 @@ h1 {
   text-align: center;
   text-transform: uppercase;
 
-  color: white;
+  color: rgb(28, 28, 28);
 
   margin-top: 40px;
 }
@@ -78,12 +57,12 @@ h1 {
   gap: 32px;
 
   /* From https://css.glass */
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 40px;
+  background: rgba(191, 191, 191, 0.35);
+  border-radius: 8px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(13.7px);
+  -webkit-backdrop-filter: blur(13.7px);
+  border: 1px solid rgba(142, 142, 142, 0.75);
 }
 
 .card {
@@ -92,7 +71,9 @@ h1 {
   justify-content: center;
   position: relative;
 
-  font-size: 40px;
+  cursor: pointer;
+
+  font-size: 52px;
 
   background: #ffffff;
   background: radial-gradient(
@@ -107,9 +88,11 @@ h1 {
 
   border-style: solid;
   border-color: rgba(93, 10, 10, 0.527);
-  border-width: 2px;
+  border-width: 1px;
   border-radius: 8px;
-  box-shadow: 2px 4px 2px 0px rgba(62, 27, 27, 0.5);
+  box-shadow: 0px 0px 2px 0px rgba(62, 27, 27, 0.5);
+
+  transition: 0.2s;
 
   /* Les éléments ayant la class card MAIS PAS hidden afficheront l'émoji */
   &:not(.hidden)::after {
@@ -126,4 +109,9 @@ h1 {
     background-image: url(/src/uno_card.jpg);
     background-size: cover;
   }
+}
+
+.card:hover {
+  box-shadow: 4px 4px 4px 0px rgba(62, 27, 27, 0.5);
+  transform: scale(1.2);
 }
