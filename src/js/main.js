@@ -45,7 +45,7 @@ const shuffle = (array) => {
 
 shuffle(emojis).forEach((emoji) => {
   // crée un élément HTML <div>, sauvegardé dans une variable s'appelant card
-  const card = document.createElement("div");
+  const card = document.createElement("button");
   card.classList.add("card", "hidden");
   card.dataset.emoji = emoji;
 

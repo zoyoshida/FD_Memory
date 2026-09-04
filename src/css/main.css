@@ -11,19 +11,17 @@
 }
 
 body {
-  background-color: #fbfaf9;
-  background-image:
-    linear-gradient(
-      90deg,
-      transparent 79px,
-      #abced4 79px,
-      #abced4 81px,
-      transparent 81px
-    ),
-    linear-gradient(#eee 0.1em, transparent 0.1em);
-  background-size: 100% 1.2em;
-}
+  height: 100vh;
 
+  background: #b20101;
+  background: linear-gradient(
+    124deg,
+    rgba(178, 1, 1, 1) 0%,
+    rgba(178, 39, 1, 1) 50%,
+    rgba(178, 1, 51, 1) 100%
+  );
+  background-repeat: no-repeat;
+}
 a {
   color: inherit;
 }
@@ -39,30 +37,64 @@ h1 {
   text-align: center;
   text-transform: uppercase;
 
-  color: rgb(28, 28, 28);
+  color: #fff;
 
   margin-top: 40px;
 }
 
+@keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+
 #board {
-  width: 720px;
-  height: 650px;
+  transform: perspective(1500px) rotateX(24deg) rotateY(10deg) rotateZ(0deg)
+    scale(1);
+
+  width: 740px;
+  height: 670px;
 
   margin: 40px auto;
-  padding: 20px 28px 28px 20px;
+  padding: 40px 40px;
 
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat (4, 1fr);
   gap: 32px;
 
+  background-color: #fff;
+  border-radius: 32px;
+
   /* From https://css.glass */
-  background: rgba(191, 191, 191, 0.35);
-  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(13.7px);
-  -webkit-backdrop-filter: blur(13.7px);
-  border: 1px solid rgba(142, 142, 142, 0.75);
+  backdrop-filter: blur(5.4px);
+  -webkit-backdrop-filter: blur(5.4px);
+  border: 1px solid rgba(255, 255, 255, 0.41);
+}
+
+@keyframes flipcard {
+  0% {
+    transform: scale(1, 1);
+  }
+  45% {
+    transform: scale(0.05, 1);
+  }
+  75% {
+    transform: scale(0.05, 1);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
 }
 
 .card {
@@ -92,7 +124,11 @@ h1 {
   border-radius: 8px;
   box-shadow: 0px 0px 2px 0px rgba(62, 27, 27, 0.5);
 
-  transition: 0.2s;
+  perspective: 1000px;
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+
+  transition: 0.1s ease-in;
 
   /* Les éléments ayant la class card MAIS PAS hidden afficheront l'émoji */
   &:not(.hidden)::after {
@@ -108,10 +144,12 @@ h1 {
   &.hidden {
     background-image: url(/src/uno_card.jpg);
     background-size: cover;
+    transform: rotateY(0deg);
+    -webkit-transform: rotateY(0deg);
   }
-}
 
-.card:hover {
-  box-shadow: 4px 4px 4px 0px rgba(62, 27, 27, 0.5);
-  transform: scale(1.2);
+  &.hidden:hover {
+    box-shadow: 0px 4px 8px 0px rgba(62, 27, 27, 0.5);
+    transform: scale(1.25);
+  }
 }
