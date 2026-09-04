@@ -4,24 +4,31 @@
   padding: 0;
 }
 
-.lilita-one-regular {
-  font-family: "Lilita One", sans-serif;
-  font-weight: 400;
+.unbounded-uniquifier {
+  font-family: "Unbounded", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
   font-style: normal;
 }
 
 body {
+  font-family: "Unbounded", sans-serif;
+  font-weight: 400;
+  color: #ffb1b1;
+  text-align: left;
+
   height: 100vh;
 
   background: #b20101;
   background: linear-gradient(
     124deg,
-    rgba(178, 1, 1, 1) 0%,
-    rgba(178, 39, 1, 1) 50%,
-    rgba(178, 1, 51, 1) 100%
+    #b40001 0%,
+    rgb(172, 21, 66) 50%,
+    #b40001 100%
   );
   background-repeat: no-repeat;
 }
+
 a {
   color: inherit;
 }
@@ -31,10 +38,24 @@ video {
   display: block;
 }
 
+.content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.content div:last-child {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  text-align: end;
+
+  padding: 80px 120px 0px 0px;
+}
+
 h1 {
-  font-family: "Lilita One", sans-serif;
-  font-size: 72px;
-  text-align: center;
+  font-family: "Unbounded", sans-serif;
+  font-size: 40px;
   text-transform: uppercase;
 
   color: #fff;
@@ -42,12 +63,44 @@ h1 {
   margin-top: 40px;
 }
 
-#board {
-  transform: perspective(1500px) rotateX(24deg) rotateY(10deg) rotateZ(0deg)
-    scale(1);
+.info-button {
+  width: 32px;
+  max-height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background-color: black;
+  border-radius: 16px;
+  transition: width 0.3s ease-in;
+}
 
-  width: 740px;
-  height: 670px;
+.info-button img {
+  height: 34px;
+  filter: invert(100%);
+}
+
+.info-button span {
+  display: none;
+  color: white;
+  margin: 0px 12px;
+  max-height: 32px;
+}
+
+.info-button:hover {
+  width: 400px;
+}
+
+.info-button:hover span {
+  display: flex;
+  max-height: 20px;
+  overflow: hidden;
+}
+
+#board {
+  transform: perspective(1500px) rotateX(24deg) rotateY(10deg) rotateZ(0deg);
+
+  min-width: 740px;
+  min-height: 670px;
 
   margin: 40px auto;
   padding: 40px 40px;
@@ -67,6 +120,15 @@ h1 {
   backdrop-filter: blur(5.4px);
   -webkit-backdrop-filter: blur(5.4px);
   border: 1px solid rgba(255, 255, 255, 0.41);
+
+  animation: aura 10s infinite ease-in-out;
+}
+
+@keyframes aura {
+  50% {
+    box-shadow: 0 4px 30px rgba(129, 128, 121, 0.659);
+    translate: 0px 20px;
+  }
 }
 
 .card {
@@ -100,7 +162,7 @@ h1 {
   transform: rotateY(180deg);
   -webkit-transform: rotateY(180deg);
 
-  transition: 0.1s ease-in;
+  transition: 0.2s ease-out;
 
   /* Les éléments ayant la class card MAIS PAS hidden afficheront l'émoji */
   &:not(.hidden)::after {
@@ -121,7 +183,24 @@ h1 {
   }
 
   &.hidden:hover {
-    box-shadow: 0px 4px 8px 0px rgba(62, 27, 27, 0.5);
-    transform: scale(1.25);
+    box-shadow: 0px 4px 8px 0px rgba(62, 27, 27, 0.264);
+    transform: scale(1.25) translate(10px, -20px);
+    outline: 2px solid black;
+    animation: glow-border 2s infinite;
+  }
+}
+
+@keyframes glow-border {
+  0% {
+    outline-color: #28f9d6;
+    outline-width: 5px;
+  }
+  50% {
+    outline-color: #2dff73;
+    outline-width: 2px;
+  }
+  100% {
+    outline-color: #28f9d6;
+    outline-width: 5px;
   }
 }
