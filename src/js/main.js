@@ -66,6 +66,9 @@ shuffle(emojis).forEach((emoji) => {
   document.querySelector("#playerAScore").innerHTML = `${playerAScore}`;
   document.querySelector("#playerBScore").innerHTML = `${playerBScore}`;
 
+  // ajout de notre carte ("card") au plateau de jeu ("board")
+  board.appendChild(card);
+
   // écoute le clic sur la carte
   card.addEventListener("click", () => {
     // première carte retournée
@@ -94,7 +97,7 @@ shuffle(emojis).forEach((emoji) => {
       // Pair trouvée
 
       if (firstCard.dataset.emoji == secondCard.dataset.emoji) {
-        console.log("OI YOU GOT A PAIR");
+        console.log("That's more like it!");
 
         // update des trackers
         pairFound += 1;
@@ -124,7 +127,7 @@ shuffle(emojis).forEach((emoji) => {
 
       // Pair pas trouvée
       else {
-        console.log("bruh");
+        console.log("¿Es en serio?");
 
         //reset des deux cartes
         setTimeout(() => {
@@ -154,7 +157,4 @@ shuffle(emojis).forEach((emoji) => {
     } else {
     }
   });
-
-  // ajout de notre carte ("card") au plateau de jeu ("board")
-  board.appendChild(card);
 });

@@ -56,7 +56,7 @@ video {
   text-align: end;
   justify-content: space-between;
 
-  padding: 80px 120px 80px 0px;
+  padding: 80px 80px 80px 0px;
 
   gap: 24px;
 }
@@ -209,6 +209,22 @@ h1 {
   }
 }
 
+.hacked .hidden {
+  background-image: none;
+  background-color: black;
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(0deg);
+}
+
+.hacked .hidden::after {
+  content: attr(data-emoji);
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
 @keyframes glow-border {
   0% {
     outline-color: #28f9d6;
@@ -235,8 +251,12 @@ h1 {
 
 #playerTurn {
   text-transform: uppercase;
-  font-size: 18px;
-  font-weight: 400;
+  font-size: 24px;
+  font-weight: 600;
+  background: #121fcf;
+  background: linear-gradient(to right, #121fcf 18%, #cf1512 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 #pairFound {
@@ -273,4 +293,15 @@ h1 {
   aspect-ratio: 1;
   clip-path: polygon(var(--p) 0, 100% 0, 100% 100%, 0 100%);
   background-color: rgb(31, 31, 31);
+}
+
+#hackedAlert {
+  top: 0;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+}
+
+.hackedHidden {
+  display: none;
 }
