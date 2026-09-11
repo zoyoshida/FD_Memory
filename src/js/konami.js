@@ -38,7 +38,7 @@ const activateCheats = () => {
   setTimeout(() => {
     board.classList.remove("hacked");
     document.querySelector("h1").innerText = "2 player Memory game";
-  }, 30000); // default = 3000
+  }, 3000); // default = 3000
 };
 
 var inputPositions = [];

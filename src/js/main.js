@@ -63,9 +63,6 @@ shuffle(emojis).forEach((emoji) => {
 
   // Tracker tour et cartes chargé pour la première fois
 
-  document.querySelector("#pairFound").innerHTML =
-    `There's ${pairFound} pair found`;
-
   document.querySelector("#playerTurn").innerHTML = `>> Player A turn`;
 
   document.querySelector("#playerAScore").innerHTML = `${playerAScore}`;
@@ -106,8 +103,6 @@ shuffle(emojis).forEach((emoji) => {
 
         // update des trackers
         pairFound += 1;
-        document.querySelector("#pairFound").innerHTML =
-          `There's ${pairFound} pair found`;
         if (playerATurn == true) {
           playerAScore += 1;
           document.querySelector("#playerAScore").innerHTML = `${playerAScore}`;
@@ -159,6 +154,7 @@ shuffle(emojis).forEach((emoji) => {
 
           playerATurn = !playerATurn;
           console.log(playerATurn);
+          document.querySelector("#playerTurn").classList.toggle("playerB");
 
           //Changement de tour
 

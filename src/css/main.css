@@ -256,10 +256,18 @@ h1 {
   font-size: 24px;
   font-weight: 600;
   background: #121fcf;
-  background: linear-gradient(to right, #121fcf 18%, #cf1512 100%);
+  background: linear-gradient(to right, #121fcf 18%, #6302f6 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+
+  &.playerB {
+    background: #cf1212;
+    background: linear-gradient(to right, #cf1212 18%, #f65b02 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }
 
 #pairFound {
