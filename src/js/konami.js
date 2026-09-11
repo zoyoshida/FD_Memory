@@ -29,6 +29,7 @@ let board = document.getElementById("board");
 
 const activateCheats = () => {
   console.log("Sistema comprometido.");
+  document.querySelector("h1").innerText = "Sistema comprometido";
   board.classList.add("hacked");
   document.getElementById("hackedAlert").classList.remove("hackedHidden");
   setTimeout(() => {
@@ -36,7 +37,8 @@ const activateCheats = () => {
   }, 200);
   setTimeout(() => {
     board.classList.remove("hacked");
-  }, 1400);
+    document.querySelector("h1").innerText = "2 player Memory game";
+  }, 30000); // default = 3000
 };
 
 var inputPositions = [];

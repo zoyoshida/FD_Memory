@@ -35,6 +35,11 @@ let playerATurn = true;
 let playerAScore = 0;
 let playerBScore = 0;
 
+// Victory Dialogue
+
+const dialog = document.getElementById("winnerReveal");
+const winner = document.getElementById("winner");
+
 // crée une variable board, qui a pour valeur l'élément HTML qui répond au sélecteur #board
 const board = document.querySelector("#board");
 
@@ -103,7 +108,6 @@ shuffle(emojis).forEach((emoji) => {
         pairFound += 1;
         document.querySelector("#pairFound").innerHTML =
           `There's ${pairFound} pair found`;
-        console.log("there's " + pairFound + " pair found !");
         if (playerATurn == true) {
           playerAScore += 1;
           document.querySelector("#playerAScore").innerHTML = `${playerAScore}`;
@@ -123,6 +127,19 @@ shuffle(emojis).forEach((emoji) => {
           firstChoice = null;
           secondChoice = null;
         }, 500);
+
+        // Si toutes les cartes sont retournées
+        if (pairFound == 12) {
+          console.log("game over !");
+          dialog.show();
+          if (playerAScore > playerBScore) {
+            console.log("Player A wins");
+            winner.innerText = `Player A wins!`;
+          } else if (playerBScore > playerAScore) {
+            winner.innerText = `Player B wins !`;
+            console.log("Player B wins");
+          }
+        }
       }
 
       // Pair pas trouvée

@@ -44,8 +44,16 @@
           </div>
           <span id="pairFound"></span>
         </div>
+        <!-- <button command="show-modal" commandfor="winnerReveal">
+          dialog debug
+        </button> -->
       </div>
     </div>
+
+    <dialog id="winnerReveal">
+      <p id="winner">It's a draw!</p>
+      <button onClick="window.location.reload();">Replay</button>
+    </dialog>
 
     <img id="hackedAlert" class="hackedHidden" src="hacked.jpg" alt="" />
 
