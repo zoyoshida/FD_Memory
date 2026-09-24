@@ -15,8 +15,8 @@
   </head>
   <body>
     <div class="content">
-      <div id="board"></div>
-      <div class="rules">
+      <div id="board" class="box"></div>
+      <div class="rules box">
         <div class="info-button">
           <span>this website is human made !!</span>
           <img src="info-icon.svg" alt="info" />
@@ -30,7 +30,7 @@
           </p>
         </div>
 
-        <div class="scoreboard">
+        <div class="scoreboard box">
           <span id="playerTurn"></span>
           <div class="score">
             <div>
@@ -45,6 +45,13 @@
             </div>
           </div>
         </div>
+
+        <audio
+          class="box"
+          controls
+          src="sound/background_music.mp3"
+          loop
+        ></audio>
         <!-- <button command="show-modal" commandfor="winnerReveal">
           dialog debug
         </button> -->

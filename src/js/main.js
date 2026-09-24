@@ -1,8 +1,18 @@
+import { gsap } from "gsap";
+
+gsap.from(".box", {
+  y: -100,
+  opacity: 0,
+  duration: 1,
+  ease: "bounce",
+  stagger: 0.2,
+});
+
 const emojis = [
   "🧌",
-  "🧚‍♀️",
+  "🧝‍♂️",
   "📦",
-  "🪦",
+  "🃏",
   "🧑‍🦽‍➡️",
   "🌞",
   "🫂",
@@ -12,9 +22,9 @@ const emojis = [
   "🍄",
   "🗿",
   "🧌",
-  "🧚‍♀️",
+  "🧝‍♂️",
   "📦",
-  "🪦",
+  "🃏",
   "🧑‍🦽‍➡️",
   "🌞",
   "🫂",
@@ -43,6 +53,10 @@ const winner = document.getElementById("winner");
 // crée une variable board, qui a pour valeur l'élément HTML qui répond au sélecteur #board
 const board = document.querySelector("#board");
 
+// Audio
+
+const audioCardFlip = new Audio("sound/select.mp3");
+
 //shuffle algorithm
 const shuffle = (array) => {
   for (let i = array.length - 1; i > 0; i--) {
@@ -54,6 +68,8 @@ const shuffle = (array) => {
 
   return array;
 };
+
+// --------------------------- GAME ! ---------------------------
 
 shuffle(emojis).forEach((emoji) => {
   // crée un élément HTML <div>, sauvegardé dans une variable s'appelant card
@@ -75,6 +91,7 @@ shuffle(emojis).forEach((emoji) => {
   card.addEventListener("click", () => {
     // première carte retournée
     if (firstChoice === null && card.classList.contains("hidden") == true) {
+      audioCardFlip.play();
       firstChoice = card;
       card.classList.remove("hidden");
       card.classList.add("firstCard");
@@ -134,6 +151,9 @@ shuffle(emojis).forEach((emoji) => {
             winner.innerText = `Player B wins !`;
             console.log("Player B wins");
           }
+          document.querySelector("button").addEventListener("onclick", () => {
+            scored.play();
+          });
         }
       }
 
