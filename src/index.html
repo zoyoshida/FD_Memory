@@ -24,9 +24,15 @@
         <div>
           <h1>2 player Memory game</h1>
           <p>
-            (Browser only btw) this is a simple game really. Flip two cards, if
-            they match it's a point. If they dont, then you pass your turn.
-            Refresh the page to reset the game.
+            (Browser only btw) this is a simple game really. Grab a friend, flip
+            two cards, if they match it's a point. If they dont, then you pass
+            your turn. If ever you are in distress, dw I got u bro, I added a
+            <a
+              href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+              target="_blank"
+              >super secret cheat code</a
+            >.
+            <!-- up up down down left right left right b a -->
           </p>
         </div>
 
@@ -48,13 +54,28 @@
 
         <audio
           class="box"
-          controls
-          src="sound/background_music.mp3"
+          id="backgroundMusic"
+          src="audio/background_music.mp3"
           loop
+          controls
+          autoplay
         ></audio>
-        <!-- <button command="show-modal" commandfor="winnerReveal">
-          dialog debug
-        </button> -->
+        <audio src="audio/select.mp3"></audio>
+        <audio src="audio/error.mp3"></audio>
+        <audio src="audio/uiiiiiiii.mp3"></audio>
+        <audio src="audio/very-nice.mp3"></audio>
+        <audio src="audio/hells-yes-brother-man-breaking-bad.mp3"></audio>
+        <audio src="audio/correct-genius-forest-gump.mp3"></audio>
+        <audio src="audio/pentakill.mp3"></audio>
+        <audio src="audio/quizlet-correct.mp3"></audio>
+        <audio src="audio/that_is_not_correct.mp3"></audio>
+        <audio src="audio/vine-boom.mp3"></audio>
+        <audio src="audio/victory.mp3"></audio>
+        <audio src="audio/that-mf-cheating.mp3"></audio>
+        <audio src="audio/en-apagando-las-luces.mp3"></audio>
+        <button class="reload" onClick="window.location.reload();">
+          Reset
+        </button>
       </div>
     </div>
 

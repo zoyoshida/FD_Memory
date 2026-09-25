@@ -12,7 +12,7 @@ const emojis = [
   "🧌",
   "🧝‍♂️",
   "📦",
-  "🃏",
+  "♣️",
   "🧑‍🦽‍➡️",
   "🌞",
   "🫂",
@@ -24,7 +24,7 @@ const emojis = [
   "🧌",
   "🧝‍♂️",
   "📦",
-  "🃏",
+  "♣️",
   "🧑‍🦽‍➡️",
   "🌞",
   "🫂",
@@ -45,6 +45,9 @@ let playerATurn = true;
 let playerAScore = 0;
 let playerBScore = 0;
 
+// combo
+let combo = 0;
+
 // Victory Dialogue
 
 const dialog = document.getElementById("winnerReveal");
@@ -55,7 +58,44 @@ const board = document.querySelector("#board");
 
 // Audio
 
-const audioCardFlip = new Audio("sound/select.mp3");
+const backgroundMusic = document.getElementById("backgroundMusic");
+backgroundMusic.volume = 0.2;
+
+const audioCardFlip = new Audio("audio/select.mp3");
+audioCardFlip.volume = 0.2;
+
+const audioError = new Audio("audio/error.mp3");
+audioError.volume = 0.2;
+
+const audioNice = new Audio("audio/uiiiiiiii.mp3");
+audioNice.volume = 0.2; //combo 1
+
+const audioNice1 = new Audio("audio/very-nice.mp3");
+audioNice1.volume = 0.2; //combo 2
+
+const audioNice2 = new Audio("audio/hells-yes-brother-man-breaking-bad.mp3");
+audioNice2.volume = 0.3; //combo 3
+
+const audioNice3 = new Audio("audio/correct-genius-forest-gump.mp3");
+audioNice3.volume = 0.5; //combo 4
+
+const audioNice4 = new Audio("audio/pentakill.mp3");
+audioNice4.volume = 0.1; //combo 5
+
+const audioNice5 = new Audio("audio/quizlet-correct.mp3");
+audioNice5.volume = 0.5; //combo 5
+
+const audioSUS = new Audio("audio/vine-boom.mp3");
+audioSUS.volume = 0.5; //okay that's sus
+
+const audioSUS2 = new Audio("audio/that-mf-cheating.mp3");
+audioSUS2.volume = 0.2; //nah ur cheating
+
+const audioFail = new Audio("audio/that_is_not_correct.mp3");
+audioFail.volume = 0.8; //mistake
+
+const audioVictory = new Audio("audio/victory.mp3");
+audioVictory.volume = 0.2;
 
 //shuffle algorithm
 const shuffle = (array) => {
@@ -103,6 +143,7 @@ shuffle(emojis).forEach((emoji) => {
       secondChoice === null &&
       card.classList.contains("hidden") == true
     ) {
+      audioCardFlip.play();
       secondChoice = card;
       card.classList.remove("hidden");
       card.classList.add("secondCard");
@@ -117,8 +158,70 @@ shuffle(emojis).forEach((emoji) => {
 
       if (firstCard.dataset.emoji == secondCard.dataset.emoji) {
         console.log("That's more like it!");
+        audioNice5.play();
+
+        //nice sound
+        if (combo == 0) {
+          audioNice.play();
+          show_image(
+            "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExdmoxajlqN3dmc3Q3NHd1bWMzNWR5OXN5MnJzaHh6bnZnaGowNDVldSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/UuzwffmvtBNGjYyEUe/giphy.gif",
+            200,
+            200,
+            "cat gif",
+          );
+        } else if (combo == 1) {
+          audioNice2.play();
+        } else if (combo == 2) {
+          audioNice1.play();
+          show_image(
+            "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNXQ1dG16dWg0MDFncWc1eGpjOXh4aGlxYmhicnpobnNzN3RyNzZrciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/QyWBTLDn9WHt0FXGJS/giphy.gif",
+            400,
+            200,
+            "jojo nice",
+          );
+        } else if (combo == 3) {
+          audioNice3.play();
+        } else if (combo == 4) {
+          audioNice4.play();
+          show_image(
+            "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNnpzMWs0dWdteGxoYmYxMjJ1YjN5Mm85YjNmMTRmZnRkZHN0bG1veiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/111ebonMs90YLu/giphy.gif",
+            200,
+            200,
+            "nice",
+          );
+        } else if (combo == 6) {
+          audioSUS.play();
+        } else if (combo == 7) {
+          audioSUS.play();
+          show_image(
+            "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMTN6czZ3eTIzMGMycWNudHhscDk3cml2eWQzdGY0NTdqbmx3cmgydSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/21VTFJTEr1x9ortvO3/giphy.gif",
+            200,
+            200,
+            "that's sus",
+          );
+        } else if (combo == 8) {
+          audioSUS.play();
+          show_image(
+            "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExMGZ4MHBod2NnNmVyMmg0OTg0NmxydnUyNzRweWZ2enFqN3I3b3dodyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/brYjDJ2FUjn1KL3Pzw/giphy.gif",
+            200,
+            200,
+            "ur sus",
+          );
+        } else if (combo == 10) {
+          audioSUS.play();
+          audioSUS2.play();
+          show_image(
+            "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ3c1YjF6bmR5cGRwd2xzZTRnYWt5MXgzN2ZuZGs4bGl4czBjYTlmeCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/o9LbqjcDkDf9oPGJVg/giphy.gif",
+            200,
+            300,
+            "ur sus",
+          );
+        } else {
+        }
 
         // update des trackers
+        combo += 1;
+        console.log("combo =" + combo);
         pairFound += 1;
         if (playerATurn == true) {
           playerAScore += 1;
@@ -142,6 +245,8 @@ shuffle(emojis).forEach((emoji) => {
 
         // Si toutes les cartes sont retournées
         if (pairFound == 12) {
+          backgroundMusic.volume = 0.05;
+          audioVictory.play();
           console.log("game over !");
           dialog.show();
           if (playerAScore > playerBScore) {
@@ -159,7 +264,17 @@ shuffle(emojis).forEach((emoji) => {
 
       // Pair pas trouvée
       else {
-        console.log("¿Es en serio?");
+        // funny audio if it was after a combo
+        if (combo >= 2) {
+          console.log("erhm acutally");
+          audioFail.play();
+        } else {
+        }
+
+        combo = 0;
+
+        console.log("oops wrong !");
+        console.log("combo =" + combo);
 
         //reset des deux cartes
         setTimeout(() => {
@@ -175,6 +290,7 @@ shuffle(emojis).forEach((emoji) => {
           playerATurn = !playerATurn;
           console.log(playerATurn);
           document.querySelector("#playerTurn").classList.toggle("playerB");
+          document.querySelector("body").classList.toggle("playerB");
 
           //Changement de tour
 
@@ -188,6 +304,27 @@ shuffle(emojis).forEach((emoji) => {
         }, 500);
       }
     } else {
+      audioError.play();
     }
   });
 });
+
+function show_image(src, width, height, alt) {
+  var img = document.createElement("img");
+  img.src = src;
+  img.width = width;
+  img.height = height;
+  img.alt = alt;
+  img.style.borderRadius = 24 + "px";
+
+  // set the position
+  img.style.position = "absolute";
+
+  img.style.top = 400 * Math.random() + "px"; // or img.style.top = document.body.clientHeight * Math.random() + "px";
+  img.style.left = 800 * Math.random() + "px"; // or img.style.left = document.body.clientWidth * Math.random() + "px";
+  document.body.appendChild(img);
+
+  setTimeout(() => {
+    img.remove();
+  }, 1800);
+}

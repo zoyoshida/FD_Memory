@@ -2,6 +2,9 @@
 // Posted by Peaceful James, modified by community. See post 'Timeline' for change history
 // Retrieved 2026-09-11, License - CC BY-SA 4.0
 
+const audioEMP = new Audio("audio/en-apagando-las-luces.mp3");
+audioEMP.volume = 0.2;
+
 const keyCodesByLabel = {
   left: 37,
   up: 38,
@@ -29,6 +32,7 @@ let board = document.getElementById("board");
 
 const activateCheats = () => {
   console.log("Sistema comprometido.");
+  audioEMP.play();
   document.querySelector("h1").innerText = "Sistema comprometido";
   board.classList.add("hacked");
   document.getElementById("hackedAlert").classList.remove("hackedHidden");

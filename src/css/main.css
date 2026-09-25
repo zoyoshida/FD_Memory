@@ -35,6 +35,18 @@ body {
   background-size: 200% 200%;
   animation: gradient-shift 8s ease alternate infinite;
   overflow: hidden;
+
+  &.playerB {
+    background: radial-gradient(
+      circle,
+      rgb(215, 42, 42) 0%,
+      rgb(230, 68, 19) 100%
+    );
+    background-repeat: no-repeat;
+    background-size: 200% 200%;
+    animation: gradient-shift 8s ease alternate infinite;
+    overflow: hidden;
+  }
 }
 
 @keyframes gradient-shift {
@@ -141,7 +153,7 @@ h1 {
     124deg,
     #b40001 0%,
     rgb(172, 21, 66) 50%,
-    #b9552a 100%
+    #ee5f27 100%
   );
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(209, 52, 38, 0.526);
@@ -349,7 +361,8 @@ h1 {
   box-shadow: 0px 20px 200px rgb(27, 1, 43);
 }
 
-#winnerReveal button {
+#winnerReveal button,
+.reload {
   cursor:
     url("/src/icons8-hand-up-100.png") 40 12,
     pointer;
@@ -362,8 +375,15 @@ h1 {
   border-radius: 100px;
 
   &:hover {
-    background-color: #2c2e89;
+    background-color: #1f1f1f;
+    outline: 2px solid black;
+    animation: glow-border 2s infinite;
   }
+}
+
+.reload {
+  padding: 12px;
+  background-color: #1f1f1f;
 }
 
 dialog[open] {
@@ -384,4 +404,7 @@ dialog[open] {
     scale: 1;
     opacity: 1;
   }
+}
+
+#backgroundMusic {
 }
