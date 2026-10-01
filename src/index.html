@@ -60,6 +60,7 @@
           controls
         ></audio>
         <audio src="audio/select.mp3"></audio>
+        <audio src="audio/ddlc-select-sfx.mp3"></audio>
         <audio src="audio/error.mp3"></audio>
         <audio src="audio/uiiiiiiii.mp3"></audio>
         <audio src="audio/very-nice.mp3"></audio>
@@ -72,20 +73,21 @@
         <audio src="audio/victory.mp3"></audio>
         <audio src="audio/that-mf-cheating.mp3"></audio>
         <audio src="audio/en-apagando-las-luces.mp3"></audio>
+        <audio src="audio/gah-dayum.mp3"></audio>
 
         <form class="cardNumber box">
           <p>Difficulty :</h2>
           <div class="cardNumberInput">
-            <input type="radio" id="cardNumber12" name="selectedCardDeckSize" value="12" />
-            <label for="cardNumber12">Easy (12 cards)</label>
+            <input type="radio" id="easy" name="selectedCardDeckSize" value="12" />
+            <label for="easy">Ez (bite size)</label>
           </div>
           <div class="cardNumberInput">
-            <input type="radio" id="cardNumber24" name="selectedCardDeckSize" value="24" checked/>
-            <label for="cardNumber24">Classic (24 cards)</label>
+            <input type="radio" id="normal" name="selectedCardDeckSize" value="24" checked/>
+            <label for="normal">Mid (default)</label>
           </div>
           <div class="cardNumberInput">
-            <input type="radio" id="cardNumber30" name="selectedCardDeckSize" value="30"/>
-            <label for="cardNumber30">Hard (30 cards)</label>
+            <input type="radio" id="hard" name="selectedCardDeckSize" value="30"/>
+            <label for="hard">Hard (oh lawrd he coming)</label>
           </div>
           <pre id="log"></pre>
         </form>

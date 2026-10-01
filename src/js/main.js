@@ -39,13 +39,25 @@ const emojis = [
   "📦",
   "♣️",
   "♣️",
+  "🧟‍♀️",
+  "🧟‍♀️",
+  "💎",
+  "💎",
+  "🧻",
+  "🧻",
+  "🫔",
+  "🫔",
+  "🧦",
+  "🧦",
+  "🍛",
+  "🍛",
 ];
 
 // taille du deck (it's horrible i know- i'm struggling)
 const form = document.querySelector("form");
-const cardNumber12 = document.getElementById("cardNumber12");
-const cardNumber24 = document.getElementById("cardNumber24");
-const cardNumber30 = document.getElementById("cardNumber30");
+const easy = document.getElementById("easy");
+const normal = document.getElementById("normal");
+const hard = document.getElementById("hard");
 
 let cardDeckSize = 24; // default
 
@@ -99,6 +111,9 @@ backgroundMusic.volume = 0.1;
 const audioCardFlip = new Audio("audio/select.mp3");
 audioCardFlip.volume = 0.2;
 
+const modeSelect = new Audio("audio/ddlc-select-sfx.mp3");
+modeSelect.volume = 0.3;
+
 const audioError = new Audio("audio/error.mp3");
 audioError.volume = 0.2;
 
@@ -132,6 +147,9 @@ audioFail.volume = 0.8; //mistake
 const audioVictory = new Audio("audio/victory.mp3");
 audioVictory.volume = 0.2;
 
+const audioHard = new Audio("audio/gah-dayum.mp3");
+audioHard.volume = 0.4;
+
 //shuffle algorithm
 const shuffle = (array) => {
   for (let i = array.length - 1; i > 0; i--) {
@@ -154,12 +172,21 @@ form.addEventListener("change", (event) => {
     board.removeChild(board.lastChild);
   }
 
-  if (cardNumber12.checked == true) {
+  if (easy.checked == true) {
     cardDeckSize = 12;
-  } else if (cardNumber24.checked == true) {
+    modeSelect.play();
+  } else if (normal.checked == true) {
     cardDeckSize = 24;
-  } else if (cardNumber30.checked == true) {
-    cardDeckSize = 30;
+    modeSelect.play();
+  } else if (hard.checked == true) {
+    cardDeckSize = 42;
+    audioHard.play();
+    show_image(
+      "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2tpMDh1c3hycmN5d3NlcjJzODB1cDByazZmZW9lN280NzJxNW1ubyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3rg3vxFMGGymk/giphy.gif",
+      200,
+      200,
+      "cat gif",
+    );
   }
 
   firstChoice = null;
@@ -345,6 +372,13 @@ function newgame() {
               winner.innerText = `Player B wins !`;
               console.log("Player B wins");
             }
+            gsap.to("#winner", {
+              y: 10,
+              scale: 1.1,
+              ease: "circ.inOut",
+              yoyo: true,
+              repeat: Infinity,
+            });
             document.querySelector("button").addEventListener("onclick", () => {
               scored.play();
             });

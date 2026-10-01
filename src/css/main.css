@@ -385,7 +385,7 @@ h1 {
   border-radius: 100px;
 
   &:hover {
-    background-color: #1f1f1f;
+    background-color: rgb(89, 0, 255);
     outline: 2px solid black;
     animation: glow-border 2s infinite;
   }
