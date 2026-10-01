@@ -170,6 +170,9 @@ form.addEventListener("change", (event) => {
   playerBScore = 0;
   combo = 0;
 
+  document.querySelector("#playerTurn").classList.remove("playerB");
+  document.querySelector("body").classList.remove("playerB");
+
   boardGrid();
   newgame();
 
