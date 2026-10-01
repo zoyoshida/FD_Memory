@@ -63,6 +63,10 @@ body {
 
 a {
   color: inherit;
+
+  cursor:
+    url("/src/icons8-hand-up-100.png") 40 12,
+    pointer;
 }
 
 img,
@@ -71,7 +75,9 @@ video {
 }
 
 .content {
+  height: 100vh;
   display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 
@@ -83,8 +89,7 @@ video {
   align-items: end;
   text-align: end;
   justify-content: space-between;
-
-  padding: 80px 80px 80px 0px;
+  padding-right: 40px;
 
   gap: 24px;
 }
@@ -95,8 +100,6 @@ h1 {
   text-transform: uppercase;
 
   color: #fff;
-
-  margin-top: 40px;
 }
 
 .info-button {
@@ -135,16 +138,13 @@ h1 {
 #board {
   transform: perspective(1500px) rotateX(24deg) rotateY(10deg) rotateZ(0deg);
 
-  min-width: 740px;
-  min-height: 670px;
-
-  margin: 80px auto;
+  margin: auto;
   padding: 40px 40px;
 
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat (4, 1fr);
-  gap: 32px;
+  /* grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(4, 1fr); */
+  gap: 24px;
 
   background-color: #fff;
   border-radius: 32px;
@@ -167,9 +167,15 @@ h1 {
 }
 
 @keyframes aura {
+  0% {
+    translate: 0px -30px;
+  }
   50% {
     box-shadow: 0 4px 30px rgba(129, 128, 121, 0.659);
-    translate: 0px 20px;
+    translate: 0px 10px;
+  }
+  100% {
+    translate: 0px -30px;
   }
 }
 
@@ -178,6 +184,9 @@ h1 {
   align-items: center;
   justify-content: center;
   position: relative;
+
+  width: 83px;
+  height: 130px;
 
   cursor:
     url("/src/icons8-hand-up-100.png") 40 12,
@@ -345,6 +354,7 @@ h1 {
 }
 
 #winnerReveal {
+  z-index: 10;
   top: 80px;
   margin: auto;
   width: 800px;
@@ -406,5 +416,124 @@ dialog[open] {
   }
 }
 
-#backgroundMusic {
+.cardNumber {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  width: fit-content;
 }
+
+.cardNumberInput {
+  cursor:
+    url("/src/icons8-hand-up-100.png") 40 12,
+    pointer;
+
+  padding: 0px 24px;
+  background-color: #1f1f1f;
+  color: white;
+  border-radius: 32px;
+}
+
+input {
+  cursor:
+    url("/src/icons8-hand-up-100.png") 40 12,
+    pointer;
+  display: none;
+}
+
+label {
+  cursor:
+    url("/src/icons8-hand-up-100.png") 40 12,
+    pointer;
+  font-size: 18px;
+  line-height: 2em;
+}
+
+/* --------------- width < 1500 WORK IN PROGRESS -------------------- */
+
+/* @media (max-width: 1200px) {
+  body {
+    animation: none;
+    &.playerB {
+      animation: none;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    overflow-y: auto;
+    height: auto;
+    background-size: cover;
+
+    &.playerB {
+      overflow-y: auto;
+      height: auto;
+      background-repeat: no-repeat;
+      background-size: cover;
+      animation: none;
+    }
+  }
+
+  .content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #board {
+    transform: perspective(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+
+    min-width: 100px;
+    width: 90vw;
+
+    margin: 20px auto 0px auto;
+    padding: 0px;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: flex-start;
+    align-items: center;
+
+    background: none;
+    box-shadow: none;
+    border: none;
+
+    animation: none;
+  }
+
+  .card {
+    width: 100px;
+    height: 100px;
+    &.hidden {
+      background-image: none;
+      background-color: white;
+      background-size: cover;
+      transform: rotateY(0deg);
+      -webkit-transform: rotateY(0deg);
+    }
+
+    &.hidden:hover {
+      box-shadow: none;
+      transform: none;
+      outline: none;
+      animation: none;
+    }
+  }
+
+  .rules {
+    align-items: center;
+    padding: 0px;
+    margin: 0px;
+  }
+
+  .moreInfo {
+    display: none;
+  }
+
+  .info-button {
+    display: none;
+  }
+} */

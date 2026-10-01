@@ -22,11 +22,11 @@
           <img src="info-icon.svg" alt="info" />
         </div>
         <div>
-          <h1>2 player Memory game</h1>
-          <p>
-            (Browser only btw) this is a simple game really. Grab a friend, flip
-            two cards, if they match it's a point. If they dont, then you pass
-            your turn. If ever you are in distress, dw I got u bro, I added a
+          <h1 class="moreInfo">2 player Memory game</h1>
+          <p class="moreInfo">
+            This is a simple game really. Grab a friend, flip two cards, if they
+            match it's a point. If they dont, then you pass your turn. If ever
+            you are in distress, dw I got u bro, I added a
             <a
               href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
               target="_blank"
@@ -39,26 +39,25 @@
         <div class="scoreboard box">
           <span id="playerTurn"></span>
           <div class="score">
-            <div>
+            <div class="scoreA">
               <p>A</p>
               <span id="playerAScore"></span>
               <p>points</p>
             </div>
-            <div>
+            <div class="scoreB">
               <p>B</p>
               <span id="playerBScore"></span>
               <p>points</p>
             </div>
           </div>
         </div>
-
         <audio
           class="box"
           id="backgroundMusic"
           src="audio/background_music.mp3"
           loop
-          controls
           autoplay
+          controls
         ></audio>
         <audio src="audio/select.mp3"></audio>
         <audio src="audio/error.mp3"></audio>
@@ -73,9 +72,23 @@
         <audio src="audio/victory.mp3"></audio>
         <audio src="audio/that-mf-cheating.mp3"></audio>
         <audio src="audio/en-apagando-las-luces.mp3"></audio>
-        <button class="reload" onClick="window.location.reload();">
-          Reset
-        </button>
+
+        <form class="cardNumber box">
+          <p>Difficulty :</h2>
+          <div class="cardNumberInput">
+            <input type="radio" id="cardNumber12" name="selectedCardDeckSize" value="12" />
+            <label for="cardNumber12">Easy (12 cards)</label>
+          </div>
+          <div class="cardNumberInput">
+            <input type="radio" id="cardNumber24" name="selectedCardDeckSize" value="24" checked/>
+            <label for="cardNumber24">Classic (24 cards)</label>
+          </div>
+          <div class="cardNumberInput">
+            <input type="radio" id="cardNumber30" name="selectedCardDeckSize" value="30"/>
+            <label for="cardNumber30">Hard (30 cards)</label>
+          </div>
+          <pre id="log"></pre>
+        </form>
       </div>
     </div>
 
@@ -86,6 +99,7 @@
 
     <img id="hackedAlert" class="hackedHidden" src="hacked.jpg" alt="" />
 
+    
     <script src="js/konami.js" type="module"></script>
     <script src="js/main.js" type="module"></script>
   </body>
